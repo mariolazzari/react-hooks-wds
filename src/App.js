@@ -1,35 +1,14 @@
-import { useState } from "react";
-
-// () => run only once!
-const initCount = () => {
-  console.log("initCount");
-  return 0;
-};
+import UseState from "./views/UseState";
+import UseEffect from "./views/UseEffect";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(initCount);
-  const [theme, setTheme] = useState("light");
-
-  const inrement = () => {
-    setCount(prevCount => prevCount - 1);
-  };
-
-  const decrement = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
-  };
-
   return (
-    <>
-      <button onClick={decrement}> - </button>
-      <span> {count} </span>
-      <button onClick={inrement}> + </button>
-      <br />
-      <button onClick={toggleTheme}>{theme}</button>
-    </>
+    <div className="container">
+      <h1 className="title">React Hooks</h1>
+      <UseState />
+      <UseEffect />
+    </div>
   );
 }
 
