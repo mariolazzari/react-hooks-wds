@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import Section from "../../components/Section";
 import Button from "../../components/Buttons";
 import ThemeContext from "../../context/ThemeContext";
 
@@ -26,9 +27,7 @@ const UseState = () => {
   };
 
   return (
-    <div className="section">
-      <h2 className="title">useState</h2>
-
+    <Section title="useState">
       <div className="item">
         <Button label="-" onClick={decrement} />
         <h4>{count}</h4>
@@ -38,7 +37,7 @@ const UseState = () => {
       <div className="item">
         <Button label={theme} onClick={toggleTheme} />
       </div>
-    </div>
+    </Section>
   );
 };
 

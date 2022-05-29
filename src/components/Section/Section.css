@@ -1,0 +1,13 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+.title {
+  margin: 20px 0px;
+  text-align: center;
+}

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Section from "../../components/Section";
+import Item from "../../components/Item";
 import Button from "../../components/Buttons";
 
 const UseEffect = () => {
@@ -52,22 +54,21 @@ const UseEffect = () => {
   }, []);
 
   return (
-    <div className="section">
-      <h2 className="title">useEffect</h2>
-
-      <div className="item">
+    <Section title="useEffect">
+      <Item>
         <Button label="Posts" onClick={setPosts} />
         <Button label="Users" onClick={setUsers} />
         <Button label="Comments" onClick={setComments} />
-      </div>
+      </Item>
+
       <div className="item">
         <h4>{`Total ${resourceType}: ${items.length}`}</h4>
       </div>
 
-      <div className="item">
+      <Item>
         <h4>{`Window width: ${windowWidth}`}</h4>
-      </div>
-    </div>
+      </Item>
+    </Section>
   );
 };
 

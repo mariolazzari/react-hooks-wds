@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import Section from "../../components/Section";
+import Item from "../../components/Item";
 import Button from "../../components/Buttons";
 
 const UseRef = () => {
@@ -32,9 +34,7 @@ const UseRef = () => {
   }, [name]);
 
   return (
-    <div className="section">
-      <h2 className="title">useRef</h2>
-
+    <Section title="useRef">
       <div className="item">
         <input
           ref={inputRef}
@@ -48,10 +48,13 @@ const UseRef = () => {
       <h4>{`My name is ${name}`}</h4>
       <h4>{`Rendered ${countRef.current} times`}</h4>
 
-      <Button label="Focus" onClick={onFocusClick} />
-      <Button label="Default" onClick={onDefaultClick} />
+      <Item>
+        <Button label="Focus" onClick={onFocusClick} />
+        <Button label="Default" onClick={onDefaultClick} />
+      </Item>
+
       <h4>{`Previous name: ${prevName.current}`}</h4>
-    </div>
+    </Section>
   );
 };
 
