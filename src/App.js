@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+// () => run only once!
+const initCount = () => {
+  console.log("initCount");
+  return 0;
+};
 
 function App() {
+  const [count, setCount] = useState(initCount);
+  const [theme, setTheme] = useState("light");
+
+  const inrement = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  const decrement = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={decrement}> - </button>
+      <span> {count} </span>
+      <button onClick={inrement}> + </button>
+      <br />
+      <button onClick={toggleTheme}>{theme}</button>
+    </>
   );
 }
 
