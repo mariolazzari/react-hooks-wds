@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "../../components/Buttons";
+import ThemeContext from "../../context/ThemeContext";
 
 // () => run only once!
 const initCount = () => {
@@ -10,7 +11,9 @@ const initCount = () => {
 const UseState = () => {
   // state
   const [count, setCount] = useState(initCount);
-  const [theme, setTheme] = useState("light");
+  //const [theme, setTheme] = useState("light");
+  // context
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   // on - click
   const increment = () => {
@@ -20,11 +23,6 @@ const UseState = () => {
   // on + click
   const decrement = () => {
     setCount(prevCount => prevCount + 1);
-  };
-
-  // on thme click
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
