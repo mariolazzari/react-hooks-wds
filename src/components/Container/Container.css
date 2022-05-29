@@ -4,3 +4,8 @@
   align-items: center;
   padding: 10px;
 }
+
+.title {
+  margin: 20px 0px;
+  text-align: center;
+}
