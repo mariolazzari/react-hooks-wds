@@ -4,6 +4,8 @@ import Button from "../../components/Buttons";
 const UseEffect = () => {
   // state
   const [resourceType, setResourceType] = useState("Posts");
+  const [items, setItems] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const setUsers = () => {
     setResourceType("Users");
@@ -15,6 +17,11 @@ const UseEffect = () => {
 
   const setComments = () => {
     setResourceType("Comments");
+  };
+
+  // on window resize
+  const onResize = () => {
+    setWindowWidth(window.innerWidth);
   };
 
   // mount / unMount
@@ -29,18 +36,36 @@ const UseEffect = () => {
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => setItems(data));
   }, [resourceType]);
+
+  // window width
+  useEffect(() => {
+    // subscribe event
+    window.addEventListener("resize", onResize);
+
+    // cleanup
+    return () => {
+      // unsubscribe event
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   return (
     <div className="section">
       <h2 className="title">useEffect</h2>
-      <h3>{resourceType}</h3>
 
       <div className="item">
         <Button label="Posts" onClick={setPosts} />
         <Button label="Users" onClick={setUsers} />
         <Button label="Comments" onClick={setComments} />
+      </div>
+      <div className="item">
+        <h4>{`Total ${resourceType}: ${items.length}`}</h4>
+      </div>
+
+      <div className="item">
+        <h4>{`Window width: ${windowWidth}`}</h4>
       </div>
     </div>
   );
