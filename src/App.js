@@ -2,7 +2,7 @@ import UseState from "./views/UseState";
 import UseEffect from "./views/UseEffect";
 import UseContext from "./views/UseContext";
 import { ThemeProvider } from "./context/ThemeContext";
-
+import UseRef from "./views/UseRef";
 import "./App.css";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <UseState />
         <UseEffect />
         <UseContext />
+        <UseRef />
       </div>
     </ThemeProvider>
   );
