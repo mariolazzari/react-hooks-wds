@@ -9,22 +9,16 @@ const UseEffect = () => {
   const [items, setItems] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const setUsers = () => {
-    setResourceType("Users");
-  };
+  const setUsers = () => setResourceType("Users");
 
   const setPosts = () => {
     setResourceType("Posts");
   };
 
-  const setComments = () => {
-    setResourceType("Comments");
-  };
+  const setComments = () => setResourceType("Comments");
 
   // on window resize
-  const onResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+  const onResize = () => setWindowWidth(window.innerWidth);
 
   // mount / unMount
   useEffect(() => {
