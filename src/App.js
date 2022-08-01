@@ -6,6 +6,7 @@ import UseContext from "./views/UseContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import UseRef from "./views/UseRef";
 import UseMemo from "./views/UseMemo";
+import UseDeferredValue from "./views/UseDeferredValue";
 import UseId from "./views/UseId";
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <UseContext />
       <UseRef />
       <UseMemo />
+      <UseDeferredValue />
       <UseId />
     </Container>
   </ThemeProvider>
