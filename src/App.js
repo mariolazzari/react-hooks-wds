@@ -6,6 +6,7 @@ import UseContext from "./views/UseContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import UseRef from "./views/UseRef";
 import UseMemo from "./views/UseMemo";
+import UseId from "./views/UseId";
 
 const App = () => (
   <ThemeProvider>
@@ -15,6 +16,7 @@ const App = () => (
       <UseContext />
       <UseRef />
       <UseMemo />
+      <UseId />
     </Container>
   </ThemeProvider>
 );
